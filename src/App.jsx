@@ -7,6 +7,9 @@ function App() {
     <div className='container'>
       <Navbar/>
       <Hero/>
+      <section className='min-h-screen'/>
+      <section className='min-h-screen'/>
+      
       {/* hero */}
       {/* about */}
       {/* projects*/}

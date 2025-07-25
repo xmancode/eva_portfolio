@@ -1,42 +1,88 @@
 import React from 'react'
-import { FlipWords } from './FlipWords'
+import { FlipWords } from './FlipWords' 
+import {motion} from 'motion/react'
 
 
-const words= ['Modern', 'Secure','Innovative'];
 
 function HeroText() {
+    const words= ['Modern', 'Secure','Innovative'];
+    const variants={
+        hidden: { opacity: 0, x: -50 },
+        visible: { opacity: 1, x: 0 }
+    }
   return (
     <div className='z-10 mt-20 text-center md:mt-40
     md:text-left rounded-3xl bg-clip-text'>
     
     {/* desktop view */}
     <div className='flex-col hidden md:flex c-space'>
-     <h1 className='text-4xl font-medium'>Hi , I'm sarath gk</h1>
+        {/* repeatation is occuring so we initialise variable for animation motion property */}
+     <motion.h1 className='text-4xl font-medium'
+        variants={variants}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay: 1 }}
+     >Hi , I'm sarath gk</motion.h1>
      <div className='flex flex-col items-start'>
-        <p className='text-5xl font-medium text-neutral-300'>
+        <motion.p className='text-5xl font-medium text-neutral-300'
+        variants={variants}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay: 1.2 }}
+        >
             A developer <br/>who loves to create <br/> awesome web & mobile apps
-        </p>
-        <div><FlipWords words={words}
-        className={"text-8xl font-medium text-neutral-300"} /></div>
+        </motion.p>
+        <motion.div 
+        variants={variants}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay: 1.5}}
+        ><FlipWords words={words}
+        className={"text-8xl font-medium text-neutral-300"} /></motion.div>
         {/* flip word */}
-        <p className='text-4xl font-medium text-neutral-300'>Web Solutions</p>
+        <motion.p className='text-4xl font-medium text-neutral-300'
+        variants={variants}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay: 1.8 }}
+        >Web Solutions</motion.p>
 
      </div>
     </div>
     {/* mobile view */}
      <div className='flex- flex-col md:hidden space-y-6'>
-        <p className='text-4xl font-medium'>
+        <motion.p className='text-4xl font-medium'
+        variants={variants}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay: 1 }}
+       >
             I'm sarath gk
-        </p>
-        <div className='text-5xl font-black text-neutral-500'>
+        </motion.p>
+        <motion.div className='text-5xl font-black text-neutral-500'
+        variants={variants}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay: 1.2 }}
+        >
             Building
-        </div>
-        <div className='text-7xl font-bold'>
+        </motion.div>
+        <motion.div className='text-7xl font-bold'
+        variants={variants}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay: 1.5 }}
+        >
             <FlipWords words={words} />
-        </div>
-        <p className='text-4xl font-black text-neutral-300'>
-            Web Applications
-        </p>
+        </motion.div>
+        <motion.p className='text-4xl font-black text-neutral-300'
+        variants={variants}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay: 1.8 }}
+        >
+            Web & Mobile<br/>Applications
+        </motion.p>
 
      </div>
     </div>
