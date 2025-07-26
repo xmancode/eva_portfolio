@@ -15,7 +15,7 @@ function HeroText() {
     md:text-left rounded-3xl bg-clip-text'>
     
     {/* desktop view */}
-    <div className='flex-col hidden md:flex c-space'>
+    <div className='flex-col hidden md:flex c-space select-none'>
         {/* repeatation is occuring so we initialise variable for animation motion property */}
      <motion.h1 className='text-4xl font-medium'
         variants={variants}
@@ -50,7 +50,7 @@ function HeroText() {
      </div>
     </div>
     {/* mobile view */}
-     <div className='flex- flex-col md:hidden space-y-6'>
+     <div className='flex- flex-col md:hidden space-y-6 select-none'>
         <motion.p className='text-4xl font-medium'
         variants={variants}
         initial="hidden"

@@ -1,23 +1,26 @@
 import React, { use } from 'react'
-import { useScroll, useTransform,motion } from 'motion/react'
+import { useScroll, useTransform,motion, useSpring } from 'motion/react'
 
 function ParallaxBackground() {
   const { scrollYProgress } = useScroll()
-  const mountain3Y = useTransform(scrollYProgress, [0, 0.5], ["0%", "70%"]);
-  const planetsX = useTransform(scrollYProgress, [0, 0.5], ["0%", "-20%"]);
-  const mountain2Y = useTransform(scrollYProgress, [0, 0.5], ["0%", "30%"]);
-  const mountain1Y = useTransform(scrollYProgress, [0, 0.5], ["0%", "0%"]);
+  const x= useSpring( scrollYProgress,{damping:50}) 
+  const mountain3Y = useTransform(x, [0, 0.5], ["0%", "70%"]);
+  const planetsX = useTransform(x, [0, 0.5], ["0%", "-20%"]);
+  const mountain2Y = useTransform(x, [0, 0.5], ["0%", "30%"]);
+  const mountain1Y = useTransform(x, [0, 0.5], ["0%", "0%"]);
 
   return (
     <section className='absolute inset-0 bg-black/50 '> 
       <div className='relative h-screen overflow-y-hidden'>
         {/* Background image with parallax effect */}
-        <div className='inset-0 absolute w-full h-screen -z-50'
-        style={{backgroundImage:'url(/assets/sky.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'bottom',
-        }}
-        />
+         <video
+    className="absolute inset-0 w-full h-full object-cover -z-40"
+    src="/assets/galaxy2.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+  />
         {/* mountain3 */}
         <motion.div  className='absolute inset-0 -z-40'
         style={{

@@ -55,6 +55,15 @@ body {
   overflow-x: hidden;
 }
 
+
+
+canvas:focus-within {
+  cursor: grab;
+}
+canvas:hover {
+  cursor: pointer;
+}
+
 .c-space {
   @apply sm:px-10 px-5 lg:px-15;
 }
