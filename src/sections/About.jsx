@@ -1,6 +1,7 @@
 import { useRef } from "react"
 import Card from "../components/Card"
 import { Globe } from "../components/globe";
+import CopyEmailButton from "../components/CopyEmailButton";
 
 function About() {
     const grid2Container= useRef();
@@ -95,7 +96,11 @@ function About() {
          </div>
           {/* grid 4 */}
          <div className="grid-default-color grid-4">
-          <div>
+          <div className="flex flex-col justify-center items-center gap-4 size-full">
+            <p className="headtext text-center">
+              Do you want to start project together?
+            </p>
+            <CopyEmailButton/>
             </div>
          </div>
           {/* grid 5 */}
