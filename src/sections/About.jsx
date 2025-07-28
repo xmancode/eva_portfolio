@@ -2,6 +2,7 @@ import { useRef } from "react"
 import Card from "../components/Card"
 import { Globe } from "../components/globe";
 import CopyEmailButton from "../components/CopyEmailButton";
+import { Frameworks } from "../components/FrameWorks";
 
 function About() {
     const grid2Container= useRef();
@@ -88,14 +89,14 @@ function About() {
          <div className="grid-black-color grid-3">
           <div className="z-10 w-[50%]">
             <p className="headtext">Time Zone</p>
-            <p className="subtext">Im From Earth and ready to worldwide </p>
+            <p className="subtext">Im From Earth and ready to work remotely worldwide </p>
           </div>
           <figure className="absolute left-[30%] top-[10%]">
             {/* <Globe/> */}
           </figure>
          </div>
           {/* grid 4 */}
-         <div className="grid-default-color grid-4">
+         <div className="grid-special-color grid-4">
           <div className="flex flex-col justify-center items-center gap-4 size-full">
             <p className="headtext text-center">
               Do you want to start project together?
@@ -104,7 +105,17 @@ function About() {
             </div>
          </div>
           {/* grid 5 */}
-         <div className="grid-special-color grid-5"></div>
+         
+          <div className="grid-default-color grid-5">
+            <div className="z-10 w-[50%]">
+              <p className="heastext">Tech stack</p>
+              <p className="subtext">My stack partners languages, framworks ,tools
+                 allow me to build robust & scalable applicatons</p>
+              </div>
+          <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">
+            <Frameworks/>
+          </div>
+         </div>
         </div>
     </section>
   )

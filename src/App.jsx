@@ -2,6 +2,7 @@
 import Navbar from './sections/navbar'
 import Hero from './sections/Hero'
 import About from './sections/About'
+import Projects from './sections/Projects'
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Navbar/>
       <Hero/>
       <About/>
+      <Projects/>
       <section className='min-h-screen'/>
       <section className='min-h-screen'/>
       
