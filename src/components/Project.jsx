@@ -1,12 +1,23 @@
 import React, { useState } from 'react'
 import ProjectDetails from './ProjectDetails'
 
-function Project({title,description,subDescription,tags,image,href}) {
+function Project({
+  title,
+  description,
+  subDescription,
+  tags,
+  image,
+  href,
+  setPreview
+}) {
     const [isHidden, setIsHidden] = useState(false);
   return (
     <>
     <div className='flex-wrap items-center py-10 justify-between space-y-14
-    sm:flex sm:space-y-0'>
+    sm:flex sm:space-y-0'
+    onMouseEnter={()=>setPreview(image)}
+    onMouseLeave={()=>setPreview(null)}
+    >
        <div>
         <p className='text-2xl'>{title}</p>
         <div className='flex mt-2 gap-5 text-sand'>

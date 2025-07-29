@@ -1,4 +1,4 @@
-import React from 'react'
+import {motion} from'motion/react'
 
 function ProjectDetails({tags,
     title,
@@ -9,9 +9,14 @@ function ProjectDetails({tags,
     closeModal
 }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-hidden backdrop-blur-sm">
-        <div className="relative max-w-2xl border shadow-sm rounded-2xl bg-gradient-to-l from-midnight to-navy border-white/10">
-        <button onClick={closeModal} className='absolute p-5 rounded-sm top-5 right =5 bg-midnight hover:bg-gray-500'>
+    <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full 
+    overflow-hidden backdrop-blur-sm">
+        <motion.div className="relative max-w-2xl border shadow-sm rounded-2xl bg-gradient-to-l
+         from-midnight to-navy border-white/10 mt-10 mb-10"
+         initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+         >
+        <button onClick={closeModal} className='absolute p-5 rounded-sm top-10 right-5 bg-midnight hover:bg-gray-500'>
             <img src='assets/close.svg' alt="close button" className='w-6 h-6'/>
         </button>
           <img src={image} alt={title} className='w-full rounded-t-2xl'/>
@@ -35,7 +40,7 @@ function ProjectDetails({tags,
                 </div>
           </div>
 
-        </div>
+        </motion.div>
       
     </div>
   )
