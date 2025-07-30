@@ -1,6 +1,8 @@
 
 import { useState } from "react";
 import emailjs from '@emailjs/browser'
+import Alert from "../components/Alert";
+import { Particles } from "../components/Particles";
 
 
 function Contact() {
@@ -9,9 +11,22 @@ function Contact() {
         message:""}
     );
     const [isLoading, setIsLoading] = useState(false);
+    const [showAlert, setshowAlert] = useState(false);
+    const [alertType, setalertType] = useState("success");
+    const [alertMessage, setalertMessage] = useState("");
     const handleChange=(e)=>{
         setformData({...formData,[e.target.name]: e.target.value});
     }
+    const showAlertMessage=(type,message)=>{
+        setalertType(type)
+        setalertMessage(message)
+        setshowAlert(true)
+        setTimeout(()=>{
+          setshowAlert(false);
+        },5000)
+    }
+
+    
     //prevent when page refresh  after submit
     const handleSubmit= async (e)=>{
       e.preventDefault()
@@ -27,13 +42,14 @@ function Contact() {
        },"t6kMQi9IYIZCPdpMQ");
 
        setIsLoading(false);
-       alert("success");
        setformData({name:"",email:"",message:""})
+       showAlertMessage("success"," Your message has been sent")
+       
 
       } catch (error) {
         setIsLoading(false);
         console.log(error);
-        alert("failed to send");
+        showAlertMessage('danger'," something went wrong")
         
       }
        
@@ -43,8 +59,16 @@ function Contact() {
 //template_wt89ras    template id
   return (
   <section className='relative flex items-center c-space section-spacing'>
+    <Particles
+        className="absolute inset-0 -z-50"
+        quantity={100}
+        ease={80}
+        color={"#ffffff"}
+        refresh
+      />
+    {showAlert && <Alert type={alertType} text={alertMessage}/>}
     <div className='flex flex-col items-center justify-center max-w-md p-5
-    mx-auto border border-white/10 bg-indigo rounded-2xl'>
+    mx-auto border border-white/10 bg-indigo rounded-2xl backdrop'>
     <div className='flex flex-col items-start gap-5 w-full mb-10 '>
         <h2 className='text-heading'>Hire me</h2>
         <p className='font-normal text-neutral-400'>Whether you looking to passionate developer 

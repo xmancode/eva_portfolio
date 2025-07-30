@@ -6,6 +6,8 @@ import Projects from './sections/Projects'
 import Experiences from './sections/Experiences'
 import Testimonials from './sections/Testmonial'
 import Contact from './sections/Contact'
+import Footer from './sections/Footer'
+
 
 
 function App() {
@@ -18,8 +20,7 @@ function App() {
       <Experiences/>
       <Testimonials/>
       <Contact/>
-      <section className='min-h-screen'/>
-      <section className='min-h-screen'/>
+      <Footer/>
       
       {/* hero */}
       {/* about */}
